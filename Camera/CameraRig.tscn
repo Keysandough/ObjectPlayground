@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://hv5gcocv54ls"]
+
+[ext_resource type="Script" uid="uid://cpjb0adkwrn4p" path="res://Camera/camera_rig.gd" id="1_hwt3l"]
+
+[node name="CameraRig" type="Node3D" unique_id=1209219742]
+script = ExtResource("1_hwt3l")
+
+[node name="YawPivot" type="Node3D" parent="." unique_id=1907369704]
+
+[node name="PitchPivot" type="Node3D" parent="YawPivot" unique_id=1595131311]
+
+[node name="Camera3D" type="Camera3D" parent="YawPivot/PitchPivot" unique_id=368842351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
