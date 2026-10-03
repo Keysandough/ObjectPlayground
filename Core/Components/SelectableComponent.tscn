@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bj0n2yl3jm41k"]
+
+[ext_resource type="Script" uid="uid://d3srfx7qhmnse" path="res://Core/Components/selectable_component.gd" id="1_p6pju"]
+
+[node name="SelectableComponent" type="Node" unique_id=859847547]
+script = ExtResource("1_p6pju")
