@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dykto4bp8q3bo"]
 
-[ext_resource type="PackedScene" uid="uid://hv5gcocv54ls" path="res://Camera/CameraRig.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://hv5gcocv54ls" path="res://Camera/CameraRig.tscn" id="1_glv2v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,11 +23,11 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=378899364]
 environment = SubResource("Environment_1bvp3")
 
-[node name="CameraRig" parent="." unique_id=1209219742 instance=ExtResource("1_ig7tw")]
+[node name="CameraRig" parent="." unique_id=1209219742 instance=ExtResource("1_glv2v")]
 
 [node name="TestObject_01" type="CSGCylinder3D" parent="." unique_id=780124592]
 use_collision = true
 
-[node name="TestObject_01" type="CSGCylinder3D" parent="TestObject_01" unique_id=1256790465]
+[node name="TestObject_02" type="CSGCylinder3D" parent="." unique_id=1256790465]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, 0, 0)
 use_collision = true
