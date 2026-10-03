@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dykto4bp8q3bo"]
 
 [ext_resource type="PackedScene" uid="uid://hv5gcocv54ls" path="res://Camera/CameraRig.tscn" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://dexvx5gndvme0" path="res://Rooms/Table.tscn" id="2_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://bj0n2yl3jm41k" path="res://Core/Components/SelectableComponent.tscn" id="3_cm0pq"]
+[ext_resource type="Script" uid="uid://5lkab3jgt211" path="res://Core/Interaction/interactions_controller.gd" id="3_r0du0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,20 +17,42 @@ background_mode = 2
 sky = SubResource("Sky_h2yge")
 glow_enabled = true
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gnqfm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gnqfm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cm0pq"]
+albedo_color = Color(1, 0.5058824, 1, 1)
+
 [node name="Main" type="Node3D" unique_id=1509884898]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1024106899]
+[node name="env" type="Node" parent="." unique_id=1818899736]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env" unique_id=1024106899]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=378899364]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=378899364]
 environment = SubResource("Environment_1bvp3")
 
 [node name="CameraRig" parent="." unique_id=1209219742 instance=ExtResource("1_glv2v")]
 
-[node name="TestObject_01" type="CSGCylinder3D" parent="." unique_id=780124592]
-use_collision = true
+[node name="Table" parent="." unique_id=412508700 instance=ExtResource("2_uu6xs")]
 
-[node name="TestObject_02" type="CSGCylinder3D" parent="." unique_id=1256790465]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, 0, 0)
-use_collision = true
+[node name="TestObject" type="RigidBody3D" parent="." unique_id=928901726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028575897, 4.7265744, 0.0068092346)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObject" unique_id=1128039110]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_gnqfm")
+
+[node name="SelectableComponent" parent="TestObject" unique_id=859847547 instance=ExtResource("3_cm0pq")]
+highlight_strength = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestObject" unique_id=587802647]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_gnqfm")
+surface_material_override/0 = SubResource("StandardMaterial3D_cm0pq")
+
+[node name="InteractionsController" type="Node3D" parent="." unique_id=85507842]
+script = ExtResource("3_r0du0")

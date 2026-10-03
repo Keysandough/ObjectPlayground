@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dexvx5gndvme0"]
+
+[ext_resource type="PackedScene" uid="uid://uml4uxdv52vb" path="res://Assets/Source/Environment.blend" id="1_57ot3"]
+
+[node name="Environment" unique_id=412508700 instance=ExtResource("1_57ot3")]
