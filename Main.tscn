@@ -36,6 +36,7 @@ shadow_enabled = true
 environment = SubResource("Environment_1bvp3")
 
 [node name="CameraRig" parent="." unique_id=1209219742 instance=ExtResource("1_glv2v")]
+pivot_smoothness = 10.0
 
 [node name="Table" parent="." unique_id=412508700 instance=ExtResource("2_uu6xs")]
 
@@ -50,6 +51,21 @@ shape = SubResource("CylinderShape3D_gnqfm")
 highlight_strength = 0.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestObject" unique_id=587802647]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_gnqfm")
+surface_material_override/0 = SubResource("StandardMaterial3D_cm0pq")
+
+[node name="TestObject2" type="RigidBody3D" parent="." unique_id=717978260]
+transform = Transform3D(0.4032649, 0.4032649, 0, -0.4032649, 0.4032649, 0, 0, 0, 0.5703027, 0.028575897, 4.7265744, 2.0068092)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObject2" unique_id=341392194]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_gnqfm")
+
+[node name="SelectableComponent" parent="TestObject2" unique_id=1661526267 instance=ExtResource("3_cm0pq")]
+highlight_strength = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestObject2" unique_id=325198890]
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_gnqfm")
 surface_material_override/0 = SubResource("StandardMaterial3D_cm0pq")
